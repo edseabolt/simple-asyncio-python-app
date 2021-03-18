@@ -1,3 +1,7 @@
+#! /usr/bin/env python
+
+import os
+
 from aiohttp import web
 
 routes = web.RouteTableDef()
@@ -12,4 +16,4 @@ async def hello(request: web.Request) -> web.Response:
 if __name__ == '__main__':
     app = web.Application()
     app.add_routes(routes)
-    web.run_app(app, host='0.0.0.0', port=8088)
+    web.run_app(app, host='0.0.0.0', port=int(os.environ.get('PORT', '8088')))

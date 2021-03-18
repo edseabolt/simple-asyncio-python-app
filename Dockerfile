@@ -2,15 +2,17 @@ FROM python:3.7
 
 WORKDIR /root
 
-COPY main.py requirements.txt ./
+COPY requirements.txt .
 
 RUN \
 	pip install -r requirements.txt && \
   rm -f requirements.txt
 
+COPY main.py .
+
 ENV PYTHONPATH "/root"
 
 EXPOSE 8088
 
-CMD ['python', '/root/main.py']
+ENTRYPOINT ["/root/main.py"]
 
