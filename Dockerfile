@@ -10,5 +10,7 @@ RUN \
 
 ENV PYTHONPATH "/root"
 
+EXPOSE 8088
+
 CMD ['python', '/root/main.py']
 
